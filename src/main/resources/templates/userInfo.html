@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: headerFragment">
+</head>
+<body>
+	<div id="container">
+		<h1>
+			Ola, <span th:text="${username}">--name--</span>.
+		</h1>
+		<h3>
+			Sua data de nascimento é <span th:text="${dob}" />.
+		</h3>
+	</div>
+</body>
+</html>

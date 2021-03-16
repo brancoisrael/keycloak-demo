@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: headerFragment">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Keycloak Java (SpringBoot) exemplo</h1>
+		</div>
+		<div>
+			<h2>Add Clientes H2</h2>
+			<div class="well">
+				<b>Add: </b><a th:href="@{/customers}">Clientes</a>
+			</div>
+
+			<h2>Listar dado do usuário logado</h2>
+			<div class="well">
+				<b>Listar: </b><a th:href="users">Usuario</a>
+			</div>
+			<h2>Tecnologias</h2>
+			<div class="well">
+				<p>Java 11</p>
+				<p>SpringBoot 2.4.3</p>
+				<p>H2</p>
+				<p>Keycloak Server 12.0.4 -
+					https://hub.docker.com/layers/jboss/keycloak/12.0.4/images/sha256-67e0c88e69bd0c7aef972c40bdeb558a974013a28b3668ca790ed63a04d70584?context=explore</p>
+			</div>
+		</div>
+		<div id="pagefoot" th:include="layout :: footerFragment">Footer
+		</div>
+	</div>
+</body>
+</html>

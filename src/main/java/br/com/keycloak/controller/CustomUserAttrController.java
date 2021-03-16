@@ -24,8 +24,6 @@ public class CustomUserAttrController {
 
         final Principal principal = (Principal) authentication.getPrincipal();
 
-        String dataNascimento = "";
-
         if (principal instanceof KeycloakPrincipal) {
 
             @SuppressWarnings("unchecked")
@@ -33,15 +31,14 @@ public class CustomUserAttrController {
             IDToken token = kPrincipal.getKeycloakSecurityContext().getIdToken();
             Map<String, Object> customClaims = token.getOtherClaims();
             
-            if (customClaims.containsKey("nascimento")) {
-                dataNascimento = String.valueOf(customClaims.get("nascimento"));
-            }
+            model.addAttribute("nomeUsuario",token.getName()!=null?token.getName():principal.getName());
+            model.addAttribute("email",token.getEmail());
+            model.addAttribute("dataNascimento", String.valueOf(customClaims.get("nascimento")));
+            model.addAttribute("idToken", kPrincipal.getKeycloakSecurityContext().getIdTokenString());
+            model.addAttribute("token", kPrincipal.getKeycloakSecurityContext().getTokenString());
         }
-
-        model.addAttribute("username", principal.getName());
-        model.addAttribute("dob", dataNascimento);
         
         return "userInfo";
     }
-
+  
 }

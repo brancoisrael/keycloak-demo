@@ -5,10 +5,19 @@
 <body>
 	<div id="container">
 		<h1>
-			Ola, <span th:text="${username}">--name--</span>.
+			Ola, <span th:text="${nomeUsuario}">--name--</span>.
 		</h1>
 		<h3>
-			Sua data de nascimento é <span th:text="${dob}" />.
+			<b>Data de nascimento:</b> <span th:text="${dataNascimento}" />
+		</h3>
+		<h3>
+			<b>E-mail:</b> <span th:text="${email}" />
+		</h3>
+		<h3>
+			<b>Token</b> <span th:text="${token}" />
+		</h3>
+		<h3>
+			<b>IdToken</b> <span th:text="${idToken}" />
 		</h3>
 	</div>
 </body>
